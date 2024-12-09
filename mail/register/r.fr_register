@@ -1,0 +1,201 @@
+
+    # 1 prénom + 2 noms
+a.b.c.a@r.fr
+A.b.c.a@r.fr
+a.b.d.a@r.fr
+A.b.d.a@r.fr
+a.c.b.a@r.fr
+A.c.b.a@r.fr
+a.c.b.d@r.fr
+A.c.b.d@r.fr
+a.c.d.c@r.fr
+A.c.d.c@r.fr
+a..c@r.fr
+a.c.@r.fr
+a.c@r.fr
+a_c@r.fr
+A..c@r.fr
+A.c.@r.fr
+A.c@r.fr
+A_c@r.fr
+a.d.b.a@r.fr
+A.d.b.a@r.fr
+a.d.b.c@r.fr
+A.d.b.c@r.fr
+a.d.c.d@r.fr
+A.d.c.d@r.fr
+a..d@r.fr
+a.d.@r.fr
+a.d@r.fr
+a_d@r.fr
+A..d@r.fr
+A.d.@r.fr
+A.d@r.fr
+A_d@r.fr
+a@r.fr
+A@r.fr
+b.a.c.b@r.fr
+B.a.c.b@r.fr
+b.a.d.b@r.fr
+B.a.d.b@r.fr
+b.c.a.b@r.fr
+B.c.a.b@r.fr
+b.c.a.d@r.fr
+B.c.a.d@r.fr
+b.c.d.c@r.fr
+B.c.d.c@r.fr
+b..c@r.fr
+b.c.@r.fr
+b.c@r.fr
+b_c@r.fr
+B..c@r.fr
+B.c.@r.fr
+B.c@r.fr
+B_c@r.fr
+b.d.a.b@r.fr
+B.d.a.b@r.fr
+b.d.a.c@r.fr
+B.d.a.c@r.fr
+b.d.c.d@r.fr
+B.d.c.d@r.fr
+b..d@r.fr
+b.d.@r.fr
+b.d@r.fr
+b_d@r.fr
+B..d@r.fr
+B.d.@r.fr
+B.d@r.fr
+B_d@r.fr
+b@r.fr
+B@r.fr
+c.a.b.a@r.fr
+C.a.b.a@r.fr
+c.a.d.b@r.fr
+C.a.d.b@r.fr
+c.a@r.fr
+c_a@r.fr
+C.a@r.fr
+C_a@r.fr
+c.b.a.b@r.fr
+C.b.a.b@r.fr
+c.b.d.a@r.fr
+C.b.d.a@r.fr
+c.b@r.fr
+c_b@r.fr
+C.b@r.fr
+C_b@r.fr
+c.c.a.d@r.fr
+C.c.a.d@r.fr
+c.c.b.d@r.fr
+C.c.b.d@r.fr
+c_d.a
+C_d.a
+c.d.a.b@r.fr
+c_d.a_b@r.fr
+c_d_a_b@r.fr
+C.d.a.b@r.fr
+C_d.a_b@r.fr
+C_d_a_b@r.fr
+c.d.a@r.fr
+C.d.a@r.fr
+c_d.b
+C_d.b
+c.d.b.a@r.fr
+c_d.b_a@r.fr
+c_d_b_a@r.fr
+C.d.b.a@r.fr
+C_d.b_a@r.fr
+C_d_b_a@r.fr
+c.d.b@r.fr
+C.d.b@r.fr
+c.d.c.a.b.a@r.fr
+C.d.c.a.b.a@r.fr
+c.d.c.a@r.fr
+C.d.c.a@r.fr
+c.d.c.b.a.b@r.fr
+C.d.c.b.a.b@r.fr
+c.d.c.b@r.fr
+C.d.c.b@r.fr
+c@r.fr
+C@r.fr
+d.a.b.a@r.fr
+D.a.b.a@r.fr
+d.a.c.b@r.fr
+D.a.c.b@r.fr
+d.a@r.fr
+d_a@r.fr
+D.a@r.fr
+D_a@r.fr
+d.b.a.b@r.fr
+D.b.a.b@r.fr
+d.b.c.a@r.fr
+D.b.c.a@r.fr
+d.b@r.fr
+d_b@r.fr
+D.b@r.fr
+D_b@r.fr
+d_c.a
+D_c.a
+d.c.a.b@r.fr
+d_c.a_b@r.fr
+d_c_a_b@r.fr
+D.c.a.b@r.fr
+D_c.a_b@r.fr
+D_c_a_b@r.fr
+d.c.a@r.fr
+D.c.a@r.fr
+d_c.b
+D_c.b
+d.c.b.a@r.fr
+d_c.b_a@r.fr
+d_c_b_a@r.fr
+D.c.b.a@r.fr
+D_c.b_a@r.fr
+D_c_b_a@r.fr
+d.c.b@r.fr
+D.c.b@r.fr
+d.c.d.a.b.a@r.fr
+D.c.d.a.b.a@r.fr
+d.c.d.a@r.fr
+D.c.d.a@r.fr
+d.c.d.b.a.b@r.fr
+D.c.d.b.a.b@r.fr
+d.c.d.b@r.fr
+D.c.d.b@r.fr
+d.d.a.c@r.fr
+D.d.a.c@r.fr
+d.d.b.c@r.fr
+D.d.b.c@r.fr
+            done
+        done
+    done
+d@r.fr
+D@r.fr
+                fi
+        for nom1 in a b; do
+            for nom2 in a b; do
+    for prenom1 in c d; do
+                    generate_variations a.c.d
+                    generate_variations a.d.c
+                    generate_variations b.c.d
+                    generate_variations b.d.c
+                    generate_variations c.a.
+                    generate_variations c.a.d
+                    generate_variations c.a_@r.fr
+                    generate_variations c.b.
+                    generate_variations c.b.d
+                    generate_variations c.b_@r.fr
+                    generate_variations c_d_a
+                    generate_variations c_d_b
+                    generate_variations d.a.
+                    generate_variations d.a.c
+                    generate_variations d.a_@r.fr
+                    generate_variations d.b.
+                    generate_variations d.b.c
+                    generate_variations d.b_@r.fr
+                    generate_variations d_c_a
+                    generate_variations d_c_b
+                if [ a !=  ]; then
+                if [ b !=  ]; then
+.@r.fr
+@r.fr

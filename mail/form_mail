@@ -1,0 +1,228 @@
+
+#!/bin/bash
+
+
+echo "--------*********** Nom ************----------"
+read nom
+echo "--------*********** Prenom **********----------"
+read prenom
+echo "--------*********** domaine *********----------"
+read domaine
+
+fichier="register/"$domaine"_register"
+
+
+if  [ ! -d  register ]; then
+   
+     mkdir register
+fi
+
+fch=0
+
+  if [  ! -f $fichier ]; then
+
+     touch $fichier
+
+   else
+    
+    (( fch=$fch + 1 ))
+   
+    fi
+
+
+
+# Fonction pour capitaliser le premier caractère d'une chaîne
+capitalize() {
+    echo "$1" | sed 's/./\U&/'
+}
+
+# Fonction pour mettre en minuscule le premier caractère d'une chaîne
+lowercase() {
+    echo "$1" | sed 's/./\L&/'
+}
+
+# Fonction pour générer les variations de majuscules/minuscules pour un ensemble de prénoms et de noms
+generate_variations() {
+    local combinaison="$1"
+    
+    # 1. Tout en minuscules
+    echo "$combinaison@$domaine" >> "$fichier"
+    
+    # 2. Première lettre en majuscule pour tous les prénoms et noms
+    echo "$(capitalize "$combinaison")@$domaine" >> $fichier
+    
+    # 3. Prénom en majuscule, nom en minuscule
+    prenom_part=$(echo "$combinaison" | cut -d '.' -f1 | capitalize)
+    nom_part=$(echo "$combinaison" | cut -d '.' -f2- | lowercase)
+    echo "$prenom_part.$nom_part@$domaine" >> $fichier
+
+    # 4. Prénom en minuscule, nom en majuscule
+    prenom_part=$(echo "$combinaison" | cut -d '.' -f1 | lowercase)
+    nom_part=$(echo "$combinaison" | cut -d '.' -f2- | capitalize)
+    echo "$prenom_part.$nom_part@$domaine" >> $fichier
+}
+
+# Fonction pour générer toutes les combinaisons possibles de prénoms et noms
+generate_emails() {
+   
+   
+
+    if [ $fch -eq 0 ]; then
+ 
+        generate_variations "recrutement"
+        generate_variations "service.rh"
+        generate_variations "clients"
+        generate_variations "rh"
+
+    fi
+
+     # 1 prénom seul
+
+    for prenom1 in $prenom; do
+        generate_variations "$prenom1"
+    done
+
+    # 1 nom seul
+    for nom1 in $nom; do
+        generate_variations "$nom1"
+    done
+
+    # 1 prénom + 1 nom
+    for prenom1 in $prenom; do
+        for nom1 in $nom; do
+            generate_variations "$prenom1.$nom1"
+            generate_variations $prenom1"_"$nom1
+            generate_variations "$nom1.$prenom1"
+            generate_variations $nom1"_"$prenom1
+        done
+    done
+
+    # 2 prénoms + 1 nom
+    for prenom1 in $prenom; do
+        for prenom2 in $prenom; do
+            for nom1 in $nom; do
+                if [ "$prenom1" != "$prenom2" ]; then
+                    generate_variations "$prenom1.$prenom2.$nom1"
+                    generate_variations $prenom1"_"$prenom2.$nom1"
+                    generate_variations $prenom1"_"$prenom2"_"$nom1
+                    generate_variations "$prenom1.$nom1.$prenom2"
+                    generate_variations "$nom1.$prenom1.$prenom2"
+                fi
+            done
+        done
+    done
+
+    # 1 prénom + 2 noms
+    for prenom1 in $prenom; do
+        for nom1 in $nom; do
+            for nom2 in $nom; do
+                if [ "$nom1" != "$nom2" ]; then
+                    generate_variations "$prenom1.$nom1.$nom2"
+                    generate_variations "$prenom1.$nom1"_"$nom2
+                    generate_variations $prenom1"_"$nom1"_"$nom2
+                    generate_variations "$nom1.$prenom1.$nom2"
+                    generate_variations "$nom1.$nom2.$prenom1"
+                fi
+            done
+        done
+    done
+
+    # 2 prénoms + 2 noms
+    for prenom1 in $prenom; do
+        for prenom2 in $prenom; do
+            for nom1 in $nom; do
+                for nom2 in $nom; do
+                    if [ "$prenom1" != "$prenom2" ] && [ "$nom1" != "$nom2" ]; then
+                        generate_variations "$prenom1.$prenom2.$nom1.$nom2"
+                        generate_variations $prenom1"_"$prenom2.$nom1"_"$nom2
+                        generate_variations $prenom1"_"$prenom2"_"$nom1"_"$nom2
+                        generate_variations "$prenom1.$nom1.$prenom2.$nom2"
+                        generate_variations "$nom1.$prenom1.$nom2.$prenom2"
+                    fi
+                done
+            done
+        done
+    done
+
+    # 3 prénoms + 1 nom
+    for prenom1 in $prenom; do
+        for prenom2 in $prenom; do
+            for prenom3 in $prenom; do
+                for nom1 in $nom; do
+                    if [ "$prenom1" != "$prenom2" ] && [ "$prenom2" != "$prenom3" ]; then
+                        generate_variations "$prenom1.$prenom2.$prenom3.$nom1"
+                        generate_variations "$prenom1.$prenom3.$nom1.$prenom2"
+                        generate_variations "$nom1.$prenom1.$prenom2.$prenom3"
+                    fi
+                done
+            done
+        done
+    done
+
+    # 1 prénom + 3 noms
+    for prenom1 in $prenom; do
+        for nom1 in $nom; do
+            for nom2 in $nom; do
+                for nom3 in $nom; do
+                    if [ "$nom1" != "$nom2" ] && [ "$nom2" != "$nom3" ]; then
+                        generate_variations "$prenom1.$nom1.$nom2.$nom3"
+                        generate_variations "$nom1.$prenom1.$nom2.$nom3"
+                        generate_variations "$nom1.$nom2.$prenom1.$nom3"
+                    fi
+                done
+            done
+        done
+    done
+
+    # 3 prénoms + 3 noms
+    for prenom1 in $prenom; do
+        for prenom2 in $prenom; do
+            for prenom3 in $prenom; do
+                for nom1 in $nom; do
+                    for nom2 in $nom; do
+                        for nom3 in $nom; do
+                            if [ "$prenom1" != "$prenom2" ] && [ "$prenom2" != "$prenom3" ] && [ "$nom1" != "$nom2" ] && [ "$nom2" != "$nom3" ]; then
+                                generate_variations "$prenom1.$prenom2.$prenom3.$nom1.$nom2.$nom3"
+                            fi
+                        done
+                    done
+                done
+            done
+        done
+    done
+}
+
+
+# Supprimer le fichier précédent pour éviter les doublons
+rm -f $fichier
+
+# Appel de la fonction principale pour générer les e-mails
+generate_emails
+
+# Supprimer les doublons dans le fichier d'e-mails
+sort -u -o "$fichier" "$fichier"
+
+echo "Les adresses e-mail ont été générées et enregistrées dans $fichier."
+
+i=0
+
+while read mail
+do
+
+     python send_mail.py --email $mail  --file cv/cv_job.pdf
+
+      (( i++ ))
+done < $fichier
+
+
+echo $((i-1))" email envoye"
+
+echo " liste d'email y/n ?"
+
+read r
+
+if [ $r == "y" ]; then
+
+   cat $fichier
+
+fi

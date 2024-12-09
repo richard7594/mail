@@ -1,0 +1,75 @@
+
+    # 1 prénom + 2 noms
+.@azae.com
+            done
+        done
+    done
+                fi
+        for nom1 in marius; do
+            for nom2 in marius; do
+    for prenom1 in lisa rose; do
+                    generate_variations lisa.marius.
+                    generate_variations lisa.marius_@azae.com
+                    generate_variations lisa.marius.rose
+                    generate_variations lisa_rose_marius
+                    generate_variations marius.lisa.rose
+                    generate_variations marius.rose.lisa
+                    generate_variations rose_lisa_marius
+                    generate_variations rose.marius.
+                    generate_variations rose.marius_@azae.com
+                    generate_variations rose.marius.lisa
+                if [ marius !=  ]; then
+lisa@azae.com
+Lisa@azae.com
+lisa.lisa.marius.rose@azae.com
+Lisa.lisa.marius.rose@azae.com
+lisa.marius@azae.com
+lisa_marius@azae.com
+lisa_marius_@azae.com
+Lisa.marius@azae.com
+Lisa_marius@azae.com
+Lisa_marius_@azae.com
+lisa.rose.lisa.marius@azae.com
+Lisa.rose.lisa.marius@azae.com
+lisa_rose.marius
+Lisa_rose.marius
+lisa.rose.marius@azae.com
+Lisa.rose.marius@azae.com
+marius@azae.com
+Marius@azae.com
+marius..lisa@azae.com
+marius.lisa.@azae.com
+marius.lisa@azae.com
+marius_lisa@azae.com
+Marius..lisa@azae.com
+Marius.lisa.@azae.com
+Marius.lisa@azae.com
+Marius_lisa@azae.com
+marius.lisa.rose.lisa@azae.com
+Marius.lisa.rose.lisa@azae.com
+marius..rose@azae.com
+marius.rose.@azae.com
+marius.rose@azae.com
+marius_rose@azae.com
+Marius..rose@azae.com
+Marius.rose.@azae.com
+Marius.rose@azae.com
+Marius_rose@azae.com
+marius.rose.lisa.rose@azae.com
+Marius.rose.lisa.rose@azae.com
+rose@azae.com
+Rose@azae.com
+rose_lisa.marius
+Rose_lisa.marius
+rose.lisa.marius@azae.com
+Rose.lisa.marius@azae.com
+rose.lisa.rose.marius@azae.com
+Rose.lisa.rose.marius@azae.com
+rose.marius@azae.com
+rose_marius@azae.com
+rose_marius_@azae.com
+Rose.marius@azae.com
+Rose_marius@azae.com
+Rose_marius_@azae.com
+rose.rose.marius.lisa@azae.com
+Rose.rose.marius.lisa@azae.com
